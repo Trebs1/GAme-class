@@ -8,6 +8,7 @@ public class Spelarensliv : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    [SerializeField] private AudioSource dödsljudeffekt;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class Spelarensliv : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("Död");
+        dödsljudeffekt.Play();
     }
 
     private void StartaOmLeveln()

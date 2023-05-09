@@ -14,8 +14,7 @@ public class Rörelseminspelare : MonoBehaviour
     [SerializeField] private float springFart = 7f;
     [SerializeField] private float hoppkraft = 14f;
     private enum Rörelsedelar { rörelse, springa, hoppa, falla }
-
-
+    [SerializeField] private AudioSource Hoppljudeffekt;
     // Start is called before the first frame update
     private void Start()
     {
@@ -36,6 +35,7 @@ public class Rörelseminspelare : MonoBehaviour
         if (Input.GetButtonDown("Jump") && Landat())
         {
             rb.velocity = new Vector3(rb.velocity.x, hoppkraft);
+            Hoppljudeffekt.Play();
         }
 
         UpdateAnimationState();
